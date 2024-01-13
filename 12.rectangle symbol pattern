@@ -1,0 +1,47 @@
+import java.util.*;
+
+public class MatrixMul {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter the number of rows: ");
+        int r = input.nextInt();
+
+        System.out.print("Enter the number of columns for mat1: ");
+        int c = input.nextInt();
+
+        int mat1[][] = new int[r][c];
+
+        System.out.println("Enter elements for mat1:");
+        for (int i = 0; i < r; i++) {
+            for (int j = 0; j < c; j++) {
+                mat1[i][j] = input.nextInt();
+            }
+        }
+
+        System.out.print("Enter the number of columns for mat2: ");
+        int colMat2 = input.nextInt();
+        int mat2[][] = new int[c][colMat2];
+
+        System.out.println("Enter elements for mat2:");
+        for (int i = 0; i < c; i++) {
+            for (int j = 0; j < colMat2; j++) {
+                mat2[i][j] = input.nextInt();
+            }
+        }
+
+        int sum[][] = new int[r][colMat2];
+
+        System.out.println("Result of matrix multiplication:");
+        for (int i = 0; i < r; i++) {
+            for (int j = 0; j < colMat2; j++) {
+                sum[i][j] = 0;
+                for (int k = 0; k < c; k++) {
+                    sum[i][j] += mat1[i][k] * mat2[k][j];
+                }
+                System.out.print(sum[i][j] + "\t");
+            }
+            System.out.println();
+        }
+    }
+}
