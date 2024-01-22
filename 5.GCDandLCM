@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class GCDandLCM {
+    static int gcd(int a, int b) {
+        if (a == 0)
+            return b;
+        return gcd(b % a, a);
+    }
+
+    static int findgcd(int a[], int n) {
+        int res = a[0];
+        for (int i = 0; i < n; i++) {
+            res = gcd(res, a[i]);
+            if (res == 1)
+                return 1;
+        }
+        return res;
+    }
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter the number of elements: ");
+        int n = input.nextInt();
+        int a[] = new int[n];
+        
+        System.out.println("Enter the elements:");
+        for (int i = 0; i < n; i++) {
+            a[i] = input.nextInt();
+        }
+
+        int gcd = findgcd(a, n);
+        System.out.println("GCD: " + gcd);
+
+        int lcm = 1;
+        for (int i = 0; i < n; i++) {
+            lcm = (lcm * a[i]) / gcd(lcm, a[i]);
+        }
+        System.out.println("LCM: " + lcm);
+    }
+}
