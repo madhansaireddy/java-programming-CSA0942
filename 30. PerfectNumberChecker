@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class PerfectNumberChecker {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        // Input a number
+        System.out.print("Enter a number: ");
+        int n = input.nextInt();
+
+        // Initialize the sum of factors
+        int factors = 0;
+
+        // Loop to find factors and calculate their sum
+        for (int i = 1; i < n; i++) {
+            if (n % i == 0) {
+                factors += i;
+            }
+        }
+
+        // Check if the number is perfect and print the result
+        if (n == factors) {
+            System.out.println("It's a perfect number");
+        } else {
+            System.out.println("It's not a perfect number");
+        }
+    }
+}
