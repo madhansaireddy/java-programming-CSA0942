@@ -1,0 +1,15 @@
+import java.util.Scanner;
+public class Username {
+    public static void main(String args[]) {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter the first username:");
+        String s1 = input.nextLine();
+        System.out.println("Enter the second username:");
+        String s2 = input.nextLine();
+        if (s1.equals(s2)) {
+            System.out.println("Usernames are valid.");
+        } else {
+            System.out.println("Usernames are invalid.");
+        }
+    }
+}
