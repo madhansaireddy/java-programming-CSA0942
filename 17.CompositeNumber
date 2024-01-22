@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class CompositeNumberFinder {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter the lower bound (a): ");
+        int a = input.nextInt();
+
+        System.out.print("Enter the upper bound (b): ");
+        int b = input.nextInt();
+
+        System.out.print("Composite numbers in the range [" + a + ", " + b + "]: ");
+        for (int i = a + 1; i <= b; i++) {
+            if (isComposite(i)) {
+                System.out.print(i + " ");
+            }
+        }
+    }
+
+  
+    static boolean isComposite(int num) {
+        if (num <= 1) {
+            return false;
+        }
+        for (int j = 2; j <= Math.sqrt(num); j++) {
+            if (num % j == 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
